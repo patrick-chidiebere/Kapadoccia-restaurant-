@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAPADOCCIA LAGOS · Subterranean Dining Experience | Concept by APOSTELLER</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kapadoccia: {
+                            terracotta: '#C85A32',
+                            'terracotta-dark': '#9E3B1C',
+                            clay: '#261610',
+                            cavern: '#1C0F0A',
+                            sandstone: '#E8DBCE',
+                            parchment: '#FAF5EE',
+                            wine: '#5A1E28',
+                            gold: '#C5A059',
+                            olive: '#5B6241',
+                            amber: '#E08244'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    },
+                    keyframes: {
+                        flicker: {
+                            '0%, 100%': { opacity: '0.85', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.03)' }
+                        },
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        },
+                        cavePulse: {
+                            '0%, 100%': { boxShadow: '0 0 30px rgba(200, 90, 50, 0.2)' },
+                            '50%': { boxShadow: '0 0 60px rgba(197, 160, 89, 0.4)' }
+                        }
+                    },
+                    animation: {
+                        'flame-flicker': 'flicker 3s ease-in-out infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'cave-glow': 'cavePulse 4s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Tactile Sandstone Background Pattern */
+        .bg-stone-texture {
+            background-color: #FAF5EE;
+            background-image: radial-gradient(#261610 0.5px, transparent 0.5px), radial-gradient(#C85A32 0.5px, #FAF5EE 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-opacity: 0.03;
+        }
+
+        /* Subterranean Dark Cavern Overlay Texture */
+        .bg-cavern-pattern {
+            background-color: #1C0F0A;
+            background-image: radial-gradient(rgba(200, 90, 50, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1C0F0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C85A32;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+
+        /* Glassmorphism Warm Edition */
+        .glass-warm {
+            background: rgba(38, 22, 16, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .glass-light {
+            background: rgba(250, 245, 238, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 90, 50, 0.15);
+        }
+
+        /* Organic Cave Mask Curvature */
+        .cave-arch-top {
+            border-top-left-radius: 120px;
+            border-top-right-radius: 120px;
+        }
+
+        .cave-arch-bottom {
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+
+        /* Hide scrollbars for horizontal slider */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-kapadoccia-parchment text-kapadoccia-clay antialiased font-sans selection:bg-kapadoccia-terracotta selection:text-white">
+
+    <!-- 04 — OPENING CAVE ENTRANCE SPLASH SCREEN -->
+    <div id="splashScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-kapadoccia-terracotta text-kapadoccia-parchment transition-all duration-700">
+        <!-- Cave Entrance Arch Frame Overlay -->
+        <div class="absolute inset-4 sm:inset-8 border border-kapadoccia-sandstone/30 rounded-3xl pointer-events-none flex flex-col justify-between p-6">
+            <div class="text-[10px] tracking-[0.3em] font-mono text-kapadoccia-sandstone/70 uppercase">Victoria Island · Lagos</div>
+            <div class="text-[10px] tracking-[0.3em] font-mono text-kapadoccia-sandstone/70 uppercase text-right">Concept by APOSTELLER</div>
+        </div>
+
+        <div class="text-center px-6 max-w-lg z-10 animate-float-slow">
+            <!-- Emblem Monogram -->
+            <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full border-2 border-kapadoccia-gold/60 flex items-center justify-center bg-kapadoccia-clay/20 backdrop-blur-md shadow-2xl">
+                <span class="font-display text-4xl sm:text-5xl font-extrabold text-kapadoccia-gold">K</span>
+            </div>
+
+            <h1 class="font-display text-3xl sm:text-5xl tracking-[0.25em] font-bold uppercase text-white mb-2">
+                KAPADOCCIA
+            </h1>
+            
+            <p class="font-mono text-xs sm:text-sm text-kapadoccia-sandstone tracking-[0.3em] uppercase mb-8">
+                LAGOS · NIGERIA
+            </p>
+
+            <p class="font-serif italic text-sm text-kapadoccia-sandstone/90 mb-8 max-w-xs mx-auto">
+                Step beyond the city into subterranean stone and candlelight.
+            </p>
+
+            <button id="enterCaveBtn" class="px-8 py-3.5 bg-kapadoccia-clay text-kapadoccia-gold border border-kapadoccia-gold/40 hover:bg-kapadoccia-wine hover:text-white transition-all duration-300 font-display text-xs tracking-[0.2em] rounded-full shadow-2xl hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto">
+                <span>ENTER THE CAVE</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 06 — PERSISTENT HEADER NAVIGATION -->
+    <header id="mainNavbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-light rounded-2xl px-5 py-3 shadow-sm border border-kapadoccia-terracotta/10">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-kapadoccia-terracotta text-kapadoccia-parchment flex items-center justify-center font-display font-bold text-lg shadow-md group-hover:bg-kapadoccia-wine transition">
+                    K
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-base sm:text-lg tracking-[0.15em] text-kapadoccia-clay group-hover:text-kapadoccia-terracotta transition">KAPADOCCIA</span>
+                    <span class="text-[9px] font-mono tracking-widest text-kapadoccia-terracotta -mt-1">VICTORIA ISLAND</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-sans text-xs tracking-wider uppercase font-semibold text-kapadoccia-clay/80">
+                <a href="#discover" class="hover:text-kapadoccia-terracotta transition">Discover</a>
+                <a href="#the-cave" class="hover:text-kapadoccia-terracotta transition">The Cave</a>
+                <a href="#menu" class="hover:text-kapadoccia-terracotta transition">Menu</a>
+                <a href="#experience" class="hover:text-kapadoccia-terracotta transition">Experience</a>
+                <a href="#gallery" class="hover:text-kapadoccia-terracotta transition">Gallery</a>
+                <a href="#location" class="hover:text-kapadoccia-terracotta transition">Location</a>
+            </nav>
+
+            <!-- Action CTAs -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/2349088451901" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-emerald-800 bg-emerald-500/10 border border-emerald-600/20 hover:bg-emerald-500/20 transition">
+                    <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i>
+                    <span>WhatsApp</span>
+                </a>
+
+                <a href="#reservations" class="px-5 py-2.5 bg-kapadoccia-terracotta hover:bg-kapadoccia-terracotta-dark text-white rounded-xl text-xs font-bold tracking-widest uppercase transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    Reserve
+                </a>
+
+                <button id="mobileNavToggle" class="lg:hidden p-2 text-kapadoccia-clay hover:text-kapadoccia-terracotta text-lg">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION OVERLAY DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-kapadoccia-cavern/95 backdrop-blur-2xl text-kapadoccia-parchment flex flex-col justify-between p-8 transform translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="flex items-center justify-between border-b border-kapadoccia-gold/20 pb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta text-white flex items-center justify-center font-display font-bold text-xl">
+                    K
+                </div>
+                <span class="font-display font-bold text-xl tracking-widest text-kapadoccia-sandstone">KAPADOCCIA</span>
+            </div>
+            <button id="closeMobileDrawerBtn" class="p-2 text-kapadoccia-sandstone hover:text-white text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <nav class="flex flex-col gap-6 text-center font-display text-lg tracking-widest uppercase py-8">
+            <a href="#discover" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">Discover</a>
+            <a href="#the-cave" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">The Cave</a>
+            <a href="#menu" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">Menu</a>
+            <a href="#experience" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">Experience</a>
+            <a href="#gallery" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">Gallery</a>
+            <a href="#location" class="mobile-nav-link text-kapadoccia-sandstone hover:text-kapadoccia-gold">Location</a>
+        </nav>
+
+        <div class="space-y-3 pt-6 border-t border-kapadoccia-gold/20 text-center">
+            <a href="#reservations" class="mobile-nav-link block w-full py-3.5 bg-kapadoccia-terracotta text-white rounded-xl font-bold tracking-widest uppercase text-xs">
+                Reserve A Table
+            </a>
+            <a href="https://wa.me/2349088451901" target="_blank" class="block w-full py-3.5 border border-emerald-500/40 text-emerald-300 rounded-xl font-bold tracking-widest uppercase text-xs flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Concierge Chat</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 05 — HERO SECTION -->
+    <section class="relative min-h-screen pt-28 pb-16 px-4 sm:px-8 flex items-center justify-center overflow-hidden bg-stone-texture">
+        <!-- Warm Ambient Cave Orbs -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-kapadoccia-terracotta/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-kapadoccia-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Copy Column -->
+            <div class="lg:col-span-7 space-y-6 text-left">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-kapadoccia-terracotta/10 border border-kapadoccia-terracotta/20 text-kapadoccia-terracotta text-xs font-mono uppercase tracking-widest">
+                    <i class="fa-solid fa-fire-flame-curved text-amber-600 animate-flame-flicker"></i>
+                    <span>Victoria Island · Cave Dining</span>
+                </div>
+
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-kapadoccia-clay leading-[1.08]">
+                    NOT JUST A TABLE.<br>
+                    <span class="font-serif italic font-normal text-kapadoccia-terracotta">AN EXPERIENCE.</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-kapadoccia-clay/80 font-light leading-relaxed max-w-xl">
+                    Step inside West Africa's most distinctive subterranean sanctuary. Carved cave architecture, warm candlelit alcoves, and a refined Turkish-Nigerian culinary fusion await in Victoria Island.
+                </p>
+
+                <!-- CTA Row -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                    <a href="#reservations" class="px-8 py-4 bg-kapadoccia-terracotta hover:bg-kapadoccia-terracotta-dark text-white rounded-2xl font-display text-xs font-bold tracking-[0.2em] uppercase transition shadow-xl shadow-kapadoccia-terracotta/25 flex items-center justify-center gap-3 group">
+                        <span>RESERVE A TABLE</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+
+                    <a href="#the-cave" class="px-8 py-4 bg-kapadoccia-sandstone/60 hover:bg-kapadoccia-sandstone text-kapadoccia-clay border border-kapadoccia-terracotta/20 rounded-2xl font-display text-xs font-bold tracking-[0.2em] uppercase transition flex items-center justify-center gap-2">
+                        <span>DISCOVER KAPADOCCIA</span>
+                    </a>
+                </div>
+
+                <!-- Verified Ratings Badge -->
+                <div class="pt-6 border-t border-kapadoccia-terracotta/15 flex items-center gap-6">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-2xl font-bold font-display text-kapadoccia-clay">4.3</span>
+                        <div class="text-amber-500 text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                    <div class="text-xs text-kapadoccia-clay/70 border-l border-kapadoccia-terracotta/20 pl-6">
+                        <strong>700+ Verified Reviews</strong> on Google Maps<br>
+                        <span class="italic text-[11px]">"Atmosphere unlike anywhere else in Lagos"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Frame Column (Subterranean Cave Viewport) -->
+            <div class="lg:col-span-5 relative">
+                <!-- Outer Arch Frame -->
+                <div class="relative mx-auto max-w-sm sm:max-w-md cave-arch-top cave-arch-bottom overflow-hidden border-4 border-kapadoccia-gold/40 shadow-2xl bg-kapadoccia-cavern group">
+                    <!-- Real Authentic Visual Representation of Kapadoccia Cave -->
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Kapadoccia Cave Dining Atmosphere" 
+                         class="w-full h-[480px] sm:h-[540px] object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 contrast-105">
+
+                    <!-- Warm Subterranean Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-kapadoccia-cavern via-transparent to-transparent opacity-80"></div>
+
+                    <!-- Floating Candlelight Card Overlay -->
+                    <div class="absolute bottom-6 left-6 right-6 glass-warm p-4 rounded-2xl text-kapadoccia-parchment">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-kapadoccia-gold">AUTHENTIC AMBIENCE</span>
+                            <span class="text-xs text-emerald-400 font-medium"><i class="fa-solid fa-circle text-[8px] mr-1"></i>Open Daily 11am-11pm</span>
+                        </div>
+                        <p class="font-serif italic text-xs text-kapadoccia-sandstone">
+                            "Warm earth, soft candle glow, and hand-carved stone alcoves in the heart of VI."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 07 — THE STORY EDITORIAL SECTION -->
+    <section id="discover" class="py-24 px-4 sm:px-8 bg-kapadoccia-parchment relative border-t border-kapadoccia-terracotta/10">
+        <div class="max-w-5xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-terracotta">OUR ESSENCE</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-kapadoccia-clay leading-tight">
+                    A PLACE YOU DON'T EXPECT TO FIND IN LAGOS.
+                </h2>
+                <div class="w-16 h-0.5 bg-kapadoccia-terracotta mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-5 text-sm sm:text-base text-kapadoccia-clay/85 leading-relaxed font-light">
+                    <p class="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:text-kapadoccia-terracotta first-letter:mr-2 first-letter:float-left">
+                        Kapadoccia was conceived as a subterranean escape from the relentless energy of Lagos. Inspired by the ancient, hand-carved rock dwellings of Turkey's Cappadocian region, the space merges natural earthy textures with modern refined hospitality.
+                    </p>
+                    <p>
+                        Every arch, textured wall, and candlelit nook is crafted to ground you. Here, dining is not merely a task on a schedule; it is an immersive sensory reset where food, lighting, sound, and stone align.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-kapadoccia-sandstone/40 border-l-4 border-kapadoccia-terracotta font-serif italic text-kapadoccia-wine">
+                        "We built a sanctuary where the outside world quietens the moment you cross the threshold."
+                    </div>
+                </div>
+
+                <!-- Editorial Photo Stack -->
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border-2 border-kapadoccia-terracotta/20 shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" 
+                             alt="Kapadoccia Cave Dining Table" 
+                             class="w-full h-80 object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-kapadoccia-clay text-kapadoccia-parchment p-5 rounded-2xl shadow-2xl max-w-xs border border-kapadoccia-gold/30 hidden sm:block">
+                        <p class="font-display text-xs uppercase tracking-widest text-kapadoccia-gold mb-1">CULINARY HARMONY</p>
+                        <p class="text-xs font-serif italic">Turkish grills, mezze, lamb shank & Nigerian signature flavors.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 08 — THE CAVE (STEP INSIDE VISUAL EXPERIENCE) -->
+    <section id="the-cave" class="py-24 px-4 sm:px-8 bg-cavern-pattern text-kapadoccia-parchment relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto space-y-12 relative z-10">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-kapadoccia-gold/20 pb-8">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-gold">SUBTERRANEAN ARCHITECTURE</span>
+                    <h2 class="font-display text-4xl sm:text-6xl font-bold text-white mt-2">STEP INSIDE.</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-kapadoccia-sandstone/80 max-w-md font-light">
+                    Explore the distinct zones within Kapadoccia — from intimate two-person candlelit alcoves to spacious banquet vaults.
+                </p>
+            </div>
+
+            <!-- Horizontal Scroll / Interactive Cave Zones Showcase -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Zone 1: Main Vault -->
+                <div class="glass-warm rounded-3xl p-6 border border-kapadoccia-gold/20 hover:border-kapadoccia-gold transition duration-300 group">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-5 relative">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" 
+                             alt="The Grand Vault" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-kapadoccia-clay/80 backdrop-blur-md text-[10px] font-mono text-kapadoccia-gold border border-kapadoccia-gold/30">
+                            ZONE 01
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">The Central Cavern</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 leading-relaxed font-light mb-4">
+                        High domed rock vaulting with organic acoustics, perfect for vibrant dinner celebrations and group gatherings.
+                    </p>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-kapadoccia-gold pt-3 border-t border-white/10">
+                        <span>CAPACITY: 8-12 GUESTS</span>
+                        <span>WARM AMBIENT</span>
+                    </div>
+                </div>
+
+                <!-- Zone 2: Intimate Alcove -->
+                <div class="glass-warm rounded-3xl p-6 border border-kapadoccia-gold/20 hover:border-kapadoccia-gold transition duration-300 group">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-5 relative">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" 
+                             alt="Candlelit Alcove" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-kapadoccia-clay/80 backdrop-blur-md text-[10px] font-mono text-kapadoccia-gold border border-kapadoccia-gold/30">
+                            ZONE 02
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Candlelit Alcoves</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 leading-relaxed font-light mb-4">
+                        Recessed stone corners designed for romantic date nights and private conversations under flickering warm light.
+                    </p>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-kapadoccia-gold pt-3 border-t border-white/10">
+                        <span>CAPACITY: 2-4 GUESTS</span>
+                        <span>INTIMATE ROMANCE</span>
+                    </div>
+                </div>
+
+                <!-- Zone 3: Fire Lounge & Bar -->
+                <div class="glass-warm rounded-3xl p-6 border border-kapadoccia-gold/20 hover:border-kapadoccia-gold transition duration-300 group">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-5 relative">
+                        <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80" 
+                             alt="Subterranean Bar" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-kapadoccia-clay/80 backdrop-blur-md text-[10px] font-mono text-kapadoccia-gold border border-kapadoccia-gold/30">
+                            ZONE 03
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">The Ember Lounge</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 leading-relaxed font-light mb-4">
+                        A tactile bar carved into raw walling, serving handcrafted Turkish botanical cocktails and rare wines.
+                    </p>
+                    <div class="flex items-center justify-between text-[11px] font-mono text-kapadoccia-gold pt-3 border-t border-white/10">
+                        <span>WALK-IN & COCKTAILS</span>
+                        <span>EVENING VIBES</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 09 — THE MENU EXPERIENCE -->
+    <section id="menu" class="py-24 px-4 sm:px-8 bg-stone-texture text-kapadoccia-clay relative border-t border-kapadoccia-terracotta/15">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-terracotta">TURKISH-NIGERIAN CULINARY FUSION</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-kapadoccia-clay">THE MENU</h2>
+                <p class="text-xs sm:text-sm text-kapadoccia-clay/70 font-light">
+                    An authentic synthesis of Turkish grilled classics, aromatic mezze, and Nigerian flavor profiles.
+                </p>
+            </div>
+
+            <!-- Menu Category Filter Tabs -->
+            <div class="flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto pb-2 no-scrollbar" id="menuTabs">
+                <button onclick="filterMenu('all')" class="menu-tab-btn active px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider bg-kapadoccia-terracotta text-white shadow-md transition">All Selections</button>
+                <button onclick="filterMenu('start')" class="menu-tab-btn px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider bg-kapadoccia-sandstone/60 text-kapadoccia-clay hover:bg-kapadoccia-terracotta/20 transition">Start</button>
+                <button onclick="filterMenu('main')" class="menu-tab-btn px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider bg-kapadoccia-sandstone/60 text-kapadoccia-clay hover:bg-kapadoccia-terracotta/20 transition">The Main</button>
+                <button onclick="filterMenu('pour')" class="menu-tab-btn px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider bg-kapadoccia-sandstone/60 text-kapadoccia-clay hover:bg-kapadoccia-terracotta/20 transition">The Pour</button>
+                <button onclick="filterMenu('sweet')" class="menu-tab-btn px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider bg-kapadoccia-sandstone/60 text-kapadoccia-clay hover:bg-kapadoccia-terracotta/20 transition">Sweet End</button>
+            </div>
+
+            <!-- Menu Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="menuContainer">
+                
+                <!-- Item 1: Adana Kebab -->
+                <div class="menu-card main bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Authentic Adana Kebab</h3>
+                            <span class="text-[9px] font-mono px-2 py-0.5 bg-amber-500/10 text-amber-800 border border-amber-500/20 rounded">HOUSE FAVORITE</span>
+                        </div>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Minced spiced lamb mounted on wide iron skewers, open flame charcoal grilled, served with sumac onion salad & lavash bread.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦18,500</span>
+                </div>
+
+                <!-- Item 2: Creamy Garlic Pasta -->
+                <div class="menu-card start bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Creamy Garlic Basil Pasta</h3>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Rich butter, Parmesan, fresh basil sauce topped with herbed garlic croutons. Option to add grilled chicken or prawns.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦9,500</span>
+                </div>
+
+                <!-- Item 3: Turkish Lamb Shank -->
+                <div class="menu-card main bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Slow-Braised Turkish Lamb Shank</h3>
+                            <span class="text-[9px] font-mono px-2 py-0.5 bg-emerald-500/10 text-emerald-800 border border-emerald-500/20 rounded">HALAL</span>
+                        </div>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Slow-cooked for 8 hours with herbs & rich pan juices, served over velvety mashed potatoes or aromatic buttered rice.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦28,000</span>
+                </div>
+
+                <!-- Item 4: Blue Mojito Cocktail -->
+                <div class="menu-card pour bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Signature Blue Mojito</h3>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Blue Curaçao, white rum, fresh muddled mint, lime, and crushed ice. Refreshing subterranean elixir.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦6,700</span>
+                </div>
+
+                <!-- Item 5: Mediterranean Bruschetta -->
+                <div class="menu-card start bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Mediterranean Bruschetta</h3>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Toasted artisan bread topped with diced vine tomatoes, fresh basil, garlic, extra virgin olive oil, and mozzarella.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦6,500</span>
+                </div>
+
+                <!-- Item 6: Authentic Turkish Baklava -->
+                <div class="menu-card sweet bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-kapadoccia-terracotta/15 flex justify-between items-start hover:shadow-lg transition">
+                    <div class="space-y-2 pr-4">
+                        <h3 class="font-display font-bold text-lg text-kapadoccia-clay">Gaziantep Pistachio Baklava</h3>
+                        <p class="text-xs text-kapadoccia-clay/70 font-light leading-relaxed">
+                            Layers of crisp phyllo pastry stuffed with crushed Antep pistachios, infused with light honey citrus syrup.
+                        </p>
+                    </div>
+                    <span class="font-mono font-bold text-base text-kapadoccia-terracotta flex-shrink-0">₦7,500</span>
+                </div>
+
+            </div>
+
+            <div class="text-center pt-4">
+                <p class="text-xs font-mono text-kapadoccia-clay/60 italic">
+                    * Prices subject to 7.5% VAT & 5% Lagos State Consumption Tax where applicable.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10 — THE EXPERIENCE (WHY VISIT) -->
+    <section id="experience" class="py-24 px-4 sm:px-8 bg-kapadoccia-wine text-kapadoccia-parchment relative overflow-hidden">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-gold">SUBTERRANEAN HOSPITALITY</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-white">
+                    COME FOR THE FOOD.<br>
+                    <span class="font-serif italic font-normal text-kapadoccia-sandstone">STAY FOR THE ATMOSPHERE.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-kapadoccia-clay/60 p-6 rounded-2xl border border-kapadoccia-gold/20 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta/30 text-kapadoccia-gold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">Date Nights</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 font-light leading-relaxed">
+                        Soft flickering candlelight, privacy alcoves, and intimate acoustic ambiance designed for romance.
+                    </p>
+                </div>
+
+                <div class="bg-kapadoccia-clay/60 p-6 rounded-2xl border border-kapadoccia-gold/20 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta/30 text-kapadoccia-gold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">Celebrations</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 font-light leading-relaxed">
+                        Unforgettable birthday dinners and milestone gatherings in dramatic cave backdrop settings.
+                    </p>
+                </div>
+
+                <div class="bg-kapadoccia-clay/60 p-6 rounded-2xl border border-kapadoccia-gold/20 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta/30 text-kapadoccia-gold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">Private Dining</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 font-light leading-relaxed">
+                        Exclusive vaulted seating areas available for corporate dinners and bespoke curated tasting menus.
+                    </p>
+                </div>
+
+                <div class="bg-kapadoccia-clay/60 p-6 rounded-2xl border border-kapadoccia-gold/20 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta/30 text-kapadoccia-gold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-cocktail"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">Late Night Drinks</h3>
+                    <p class="text-xs text-kapadoccia-sandstone/80 font-light leading-relaxed">
+                        Craft cocktails, fine wines, and Turkish spirits served until 11:00 PM every day of the week.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11 — RESERVATIONS DIGITAL FRONT DESK -->
+    <section id="reservations" class="py-24 px-4 sm:px-8 bg-cavern-pattern text-kapadoccia-parchment relative border-t border-kapadoccia-gold/20">
+        <div class="max-w-4xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-gold">TABLE RESERVATIONS</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-white">SECURE YOUR TABLE</h2>
+                <p class="text-xs sm:text-sm text-kapadoccia-sandstone/80 font-light">
+                    Walk-ins are welcomed subject to availability. Table reservations are recommended for peak evening dining.
+                </p>
+            </div>
+
+            <!-- Reservation Interactive Form Panel -->
+            <div class="glass-warm p-6 sm:p-10 rounded-3xl border border-kapadoccia-gold/30 shadow-2xl relative">
+                
+                <form id="reservationForm" onsubmit="handleReservationSubmit(event)" class="space-y-6">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        
+                        <!-- Guests Count -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Number of Guests</label>
+                            <select id="resGuests" required class="w-full bg-kapadoccia-clay/90 border border-kapadoccia-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-kapadoccia-gold">
+                                <option value="1 Guest">1 Guest</option>
+                                <option value="2 Guests" selected>2 Guests (Intimate)</option>
+                                <option value="3-4 Guests">3 - 4 Guests</option>
+                                <option value="5-8 Guests">5 - 8 Guests (Group)</option>
+                                <option value="9+ Guests">9+ Guests (Private Vault)</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Picker -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Preferred Date</label>
+                            <input type="date" id="resDate" required class="w-full bg-kapadoccia-clay/90 border border-kapadoccia-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-kapadoccia-gold">
+                        </div>
+
+                        <!-- Time Slot -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Preferred Time</label>
+                            <select id="resTime" required class="w-full bg-kapadoccia-clay/90 border border-kapadoccia-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-kapadoccia-gold">
+                                <option value="12:00 PM">12:00 PM (Lunch)</option>
+                                <option value="2:00 PM">2:00 PM (Lunch)</option>
+                                <option value="5:00 PM">5:00 PM (Early Dinner)</option>
+                                <option value="7:00 PM" selected>7:00 PM (Peak Dinner)</option>
+                                <option value="9:00 PM">9:00 PM (Late Dining)</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Seating Area Preference -->
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Seating Area Preference</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-3 p-3.5 bg-kapadoccia-clay/80 rounded-xl border border-kapadoccia-gold/20 cursor-pointer hover:border-kapadoccia-gold transition">
+                                <input type="radio" name="area" value="Candlelit Alcove" checked class="accent-kapadoccia-gold">
+                                <span class="text-xs text-white">Candlelit Alcove</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3.5 bg-kapadoccia-clay/80 rounded-xl border border-kapadoccia-gold/20 cursor-pointer hover:border-kapadoccia-gold transition">
+                                <input type="radio" name="area" value="Main Cavern Vault" class="accent-kapadoccia-gold">
+                                <span class="text-xs text-white">Main Cavern Vault</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3.5 bg-kapadoccia-clay/80 rounded-xl border border-kapadoccia-gold/20 cursor-pointer hover:border-kapadoccia-gold transition">
+                                <input type="radio" name="area" value="Bar Lounge Area" class="accent-kapadoccia-gold">
+                                <span class="text-xs text-white">Bar Lounge</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Guest Details -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Full Name</label>
+                            <input type="text" id="resName" placeholder="e.g. Tayo Adebayo" required class="w-full bg-kapadoccia-clay/90 border border-kapadoccia-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-kapadoccia-gold placeholder-gray-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-kapadoccia-gold mb-2">Phone / WhatsApp Number</label>
+                            <input type="tel" id="resPhone" placeholder="+234 800 000 0000" required class="w-full bg-kapadoccia-clay/90 border border-kapadoccia-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-kapadoccia-gold placeholder-gray-500">
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                        <button type="submit" class="w-full sm:w-auto flex-1 py-4 bg-kapadoccia-terracotta hover:bg-kapadoccia-terracotta-dark text-white rounded-xl font-display text-xs font-bold tracking-[0.2em] uppercase transition shadow-xl shadow-kapadoccia-terracotta/25 flex items-center justify-center gap-3">
+                            <i class="fa-regular fa-calendar-check text-sm"></i>
+                            <span>RESERVE YOUR TABLE</span>
+                        </button>
+
+                        <a href="https://wa.me/2349088451901?text=Hello%20Kapadoccia%20Lagos,%20I%20would%20like%20to%20inquire%20about%20a%20table%20reservation." target="_blank" class="w-full sm:w-auto px-6 py-4 bg-emerald-600/20 border border-emerald-500/40 hover:bg-emerald-600/30 text-emerald-300 rounded-xl font-display text-xs font-bold tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                            <span>WhatsApp Host</span>
+                        </a>
+                    </div>
+
+                </form>
+
+                <!-- Confirmation Modal Output -->
+                <div id="resConfirmationModal" class="hidden mt-6 p-6 rounded-2xl bg-emerald-900/40 border border-emerald-500/40 text-emerald-100 text-sm space-y-3 animate-fade-in">
+                    <div class="flex items-center gap-3 text-emerald-400 font-bold font-display text-lg">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Reservation Request Formatted</span>
+                    </div>
+                    <p id="resSummaryText" class="text-xs text-emerald-200/90 leading-relaxed font-mono">
+                        <!-- Dynamic text generated via JS -->
+                    </p>
+                    <a id="resWhatsAppLink" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Complete Request on WhatsApp Concierge</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 12 & 13 — DIGITAL CONCIERGE & SOCIAL PROOF -->
+    <section class="py-20 px-4 sm:px-8 bg-stone-texture border-t border-kapadoccia-terracotta/15">
+        <div class="max-w-6xl mx-auto space-y-16">
+            
+            <!-- Concierge Quick Action Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                
+                <a href="#reservations" class="p-5 bg-white/80 rounded-2xl border border-kapadoccia-terracotta/15 hover:border-kapadoccia-terracotta transition text-center group">
+                    <div class="w-10 h-10 rounded-xl bg-kapadoccia-terracotta/10 text-kapadoccia-terracotta mx-auto flex items-center justify-center text-lg mb-2 group-hover:bg-kapadoccia-terracotta group-hover:text-white transition">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-kapadoccia-clay">Book Table</h4>
+                    <span class="text-[10px] text-kapadoccia-clay/60 font-mono">Reserve online</span>
+                </a>
+
+                <a href="https://wa.me/2349088451901" target="_blank" class="p-5 bg-white/80 rounded-2xl border border-kapadoccia-terracotta/15 hover:border-kapadoccia-terracotta transition text-center group">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 mx-auto flex items-center justify-center text-lg mb-2 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-kapadoccia-clay">WhatsApp</h4>
+                    <span class="text-[10px] text-kapadoccia-clay/60 font-mono">Direct concierges</span>
+                </a>
+
+                <a href="https://maps.google.com/?cid=9059379649325613143" target="_blank" class="p-5 bg-white/80 rounded-2xl border border-kapadoccia-terracotta/15 hover:border-kapadoccia-terracotta transition text-center group">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 mx-auto flex items-center justify-center text-lg mb-2 group-hover:bg-amber-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-kapadoccia-clay">Directions</h4>
+                    <span class="text-[10px] text-kapadoccia-clay/60 font-mono">Open Google Maps</span>
+                </a>
+
+                <a href="https://www.instagram.com/kapadoccialagos/" target="_blank" class="p-5 bg-white/80 rounded-2xl border border-kapadoccia-terracotta/15 hover:border-kapadoccia-terracotta transition text-center group">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 mx-auto flex items-center justify-center text-lg mb-2 group-hover:bg-purple-600 group-hover:text-white transition">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-kapadoccia-clay">Instagram</h4>
+                    <span class="text-[10px] text-kapadoccia-clay/60 font-mono">Visual feed</span>
+                </a>
+
+            </div>
+
+            <!-- Social Proof Testimonial Cards -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-kapadoccia-terracotta">VERIFIED GOOGLE REVIEWS</span>
+                        <h3 class="font-display text-2xl font-bold text-kapadoccia-clay">WHAT LAGOS IS SAYING</h3>
+                    </div>
+                    <div class="text-right hidden sm:block">
+                        <span class="font-display text-xl font-bold text-kapadoccia-terracotta">4.3 / 5.0</span>
+                        <span class="block text-[11px] text-kapadoccia-clay/60 font-mono">700+ Google Reviews</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white/80 p-6 rounded-2xl border border-kapadoccia-terracotta/15 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="text-amber-500 text-xs flex gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[10px] font-mono text-kapadoccia-clay/50">Google Verified</span>
+                        </div>
+                        <p class="text-xs text-kapadoccia-clay/80 font-serif italic leading-relaxed">
+                            "The cave aesthetics are so uniquely done. They took great photos for us and the lamb shank was tender and full of flavor."
+                        </p>
+                        <span class="block text-[11px] font-bold text-kapadoccia-clay">— Bella S., Lagos</span>
+                    </div>
+
+                    <div class="bg-white/80 p-6 rounded-2xl border border-kapadoccia-terracotta/15 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="text-amber-500 text-xs flex gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[10px] font-mono text-kapadoccia-clay/50">Google Verified</span>
+                        </div>
+                        <p class="text-xs text-kapadoccia-clay/80 font-serif italic leading-relaxed">
+                            "Best date night spot on Victoria Island. The candlelit alcove felt completely private. Great Adana kebab."
+                        </p>
+                        <span class="block text-[11px] font-bold text-kapadoccia-clay">— Femi A., Victoria Island</span>
+                    </div>
+
+                    <div class="bg-white/80 p-6 rounded-2xl border border-kapadoccia-terracotta/15 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="text-amber-500 text-xs flex gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[10px] font-mono text-kapadoccia-clay/50">Google Verified</span>
+                        </div>
+                        <p class="text-xs text-kapadoccia-clay/80 font-serif italic leading-relaxed">
+                            "Cocktails were superb — the Blue Mojito is a must. Atmosphere is 10/10. Definitely coming back."
+                        </p>
+                        <span class="block text-[11px] font-bold text-kapadoccia-clay">— Chidinma O., Lekki</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 14 — LOCATION & OPERATIONAL INFORMATION -->
+    <section id="location" class="py-24 px-4 sm:px-8 bg-kapadoccia-clay text-kapadoccia-parchment relative">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-gold">FIND YOUR WAY</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-white">FIND YOUR WAY TO THE CAVE.</h2>
+                
+                <div class="space-y-4 text-sm text-kapadoccia-sandstone/85 font-light">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-location-dot text-kapadoccia-terracotta text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-white block font-display">ADDRESS</strong>
+                            16 / 22 Idowu Taylor Street, Victoria Island, Lagos 106104, Nigeria.
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-clock text-kapadoccia-terracotta text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-white block font-display">OPENING HOURS</strong>
+                            Open Daily: 11:00 AM – 11:00 PM
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-kapadoccia-terracotta text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-white block font-display">DIRECT CONTACT / INQUIRIES</strong>
+                            +234 908 845 1901
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="https://maps.google.com/?cid=9059379649325613143" target="_blank" class="px-6 py-3.5 bg-kapadoccia-terracotta hover:bg-kapadoccia-terracotta-dark text-white rounded-xl text-xs font-bold tracking-widest uppercase transition flex items-center gap-2">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <span>GET DIRECTIONS ON MAPS</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Map Card -->
+            <div class="lg:col-span-6">
+                <div class="glass-warm p-4 rounded-3xl border border-kapadoccia-gold/30 shadow-2xl">
+                    <div class="h-80 w-full rounded-2xl overflow-hidden relative bg-slate-900 flex items-center justify-center text-center p-6">
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" 
+                             alt="Map Location VI Lagos" 
+                             class="absolute inset-0 w-full h-full object-cover filter brightness-50">
+                        
+                        <div class="relative z-10 space-y-3">
+                            <div class="w-12 h-12 rounded-full bg-kapadoccia-terracotta text-white mx-auto flex items-center justify-center text-xl shadow-xl animate-bounce">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-white text-lg">Kapadoccia Lagos</h3>
+                            <p class="text-xs text-kapadoccia-sandstone font-mono">Victoria Island, Lagos</p>
+                            <a href="https://maps.google.com/?cid=9059379649325613143" target="_blank" class="inline-block px-4 py-2 bg-kapadoccia-gold text-kapadoccia-clay font-bold text-xs uppercase tracking-wider rounded-lg shadow">
+                                Open Interactive Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 15 — EDITORIAL LIGHTBOX GALLERY -->
+    <section id="gallery" class="py-24 px-4 sm:px-8 bg-stone-texture border-t border-kapadoccia-terracotta/15">
+        <div class="max-w-6xl mx-auto space-y-10">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-kapadoccia-terracotta">EDITORIAL GALLERY</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-kapadoccia-clay">THE VISUAL ARCHIVE</h2>
+            </div>
+
+            <!-- Asymmetric Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                
+                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-md group cursor-pointer relative" onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80', 'Subterranean Cavern Atmosphere')">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Cave Interior" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-xs font-serif italic">
+                        Main Subterranean Vault
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden h-48 shadow-md group cursor-pointer relative" onclick="openLightbox('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80', 'Gourmet Turkish Plating')">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Turkish Plating" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="rounded-2xl overflow-hidden h-48 shadow-md group cursor-pointer relative" onclick="openLightbox('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80', 'Candlelit Dining Nook')">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=80" alt="Candlelit Dining Nook" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="rounded-2xl overflow-hidden h-48 shadow-md group cursor-pointer relative" onclick="openLightbox('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80', 'Cave Bar & Cocktail Alchemy')">
+                    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=80" alt="Cocktail Lounge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="rounded-2xl overflow-hidden h-48 shadow-md group cursor-pointer relative" onclick="openLightbox('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80', 'Warm Candlelit Table Detail')">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Candlelit Table" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full flex flex-col items-center">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white text-3xl hover:text-kapadoccia-gold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Gallery Enlarged" class="max-h-[80vh] rounded-2xl object-contain border border-white/20 shadow-2xl mb-3">
+            <p id="lightboxCaption" class="text-sm font-serif italic text-kapadoccia-sandstone"></p>
+        </div>
+    </div>
+
+    <!-- 16 — FINAL CTA SECTION -->
+    <section class="py-24 px-4 sm:px-8 bg-kapadoccia-terracotta text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto space-y-8 relative z-10">
+            
+            <div class="w-16 h-16 rounded-full border border-white/40 mx-auto flex items-center justify-center text-2xl font-display">
+                K
+            </div>
+
+            <h2 class="font-display text-4xl sm:text-6xl font-bold tracking-tight">
+                COME FIND YOUR TABLE.
+            </h2>
+
+            <p class="font-serif italic text-base sm:text-xl text-kapadoccia-sandstone max-w-lg mx-auto">
+                Step away from the surface into Victoria Island's subterranean cave restaurant.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#reservations" class="w-full sm:w-auto px-8 py-4 bg-kapadoccia-clay hover:bg-kapadoccia-wine text-kapadoccia-gold rounded-xl font-display text-xs font-bold tracking-[0.2em] uppercase transition shadow-2xl">
+                    RESERVE A TABLE
+                </a>
+
+                <a href="https://wa.me/2349088451901" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-xl font-display text-xs font-bold tracking-[0.2em] uppercase transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WHATSAPP CONCIERGE</span>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-white/20 text-xs font-mono tracking-widest uppercase text-kapadoccia-sandstone/80">
+                KAPADOCCIA · VICTORIA ISLAND · LAGOS
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 23 — DISCREET CONCEPT DESIGN FOOTER -->
+    <footer class="bg-kapadoccia-cavern text-kapadoccia-sandstone/60 py-8 px-4 text-center text-xs font-mono border-t border-kapadoccia-gold/10 space-y-2">
+        <p class="tracking-widest uppercase text-[10px] text-kapadoccia-gold">
+            UNOFFICIAL CONCEPT DESIGN · CREATED BY APOSTELLER
+        </p>
+        <p class="text-[11px] max-w-xl mx-auto font-sans font-light opacity-70">
+            This digital proposal is an independent concept created by APOSTELLER studio to demonstrate next-generation digital experience potential for Kapadoccia Lagos.
+        </p>
+        <p class="text-[10px]">© 2026 APOSTELLER. All Rights Reserved.</p>
+    </footer>
+
+    <!-- STICKY MOBILE ACTION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-30 sm:hidden glass-warm p-3 border-t border-kapadoccia-gold/30 flex items-center justify-between gap-3">
+        <a href="#reservations" class="flex-1 py-3 bg-kapadoccia-terracotta text-white rounded-xl text-center text-xs font-bold uppercase tracking-wider">
+            Reserve Table
+        </a>
+        <a href="https://wa.me/2349088451901" target="_blank" class="p-3 bg-emerald-600 text-white rounded-xl text-center flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set default date picker to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const dateInput = document.getElementById('resDate');
+            if (dateInput) {
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+
+            // Splash entrance listener
+            document.getElementById('enterCaveBtn').addEventListener('click', closeSplash);
+            
+            // Auto close splash after 3.5 seconds if user hasn't clicked
+            setTimeout(() => {
+                const splash = document.getElementById('splashScreen');
+                if (splash && !splash.classList.contains('closed')) {
+                    closeSplash();
+                }
+            }, 3500);
+
+            // Mobile nav controls
+            const drawer = document.getElementById('mobileDrawer');
+            document.getElementById('mobileNavToggle').addEventListener('click', () => {
+                drawer.classList.remove('translate-x-full');
+            });
+            document.getElementById('closeMobileDrawerBtn').addEventListener('click', () => {
+                drawer.classList.add('translate-x-full');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+            });
+        });
+
+        // Close Splash Function
+        function closeSplash() {
+            const splash = document.getElementById('splashScreen');
+            splash.classList.add('closed', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => splash.style.display = 'none', 700);
+        }
+
+        // Menu Filtering Logic
+        function filterMenu(category) {
+            const tabs = document.querySelectorAll('.menu-tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-kapadoccia-terracotta', 'text-white', 'shadow-md');
+                tab.classList.add('bg-kapadoccia-sandstone/60', 'text-kapadoccia-clay');
+            });
+            event.target.classList.remove('bg-kapadoccia-sandstone/60', 'text-kapadoccia-clay');
+            event.target.classList.add('bg-kapadoccia-terracotta', 'text-white', 'shadow-md');
+
+            const cards = document.querySelectorAll('.menu-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Reservation Form Submission Handler
+        function handleReservationSubmit(event) {
+            event.preventDefault();
+            
+            const guests = document.getElementById('resGuests').value;
+            const date = document.getElementById('resDate').value;
+            const time = document.getElementById('resTime').value;
+            const name = document.getElementById('resName').value;
+            const phone = document.getElementById('resPhone').value;
+            const area = document.querySelector('input[name="area"]:checked').value;
+
+            const summaryText = `Table Reservation Request for ${name} (${phone}) - ${guests} on ${date} at ${time} in ${area}.`;
+            
+            const whatsappText = encodeURIComponent(`Hello Kapadoccia Lagos Concierge, I would like to request a table reservation:\n\n` +
+                `👤 Name: ${name}\n` +
+                `📞 Phone: ${phone}\n` +
+                `👥 Guests: ${guests}\n` +
+                `📅 Date: ${date}\n` +
+                `⏰ Time: ${time}\n` +
+                `🕯️ Preferred Area: ${area}\n\n` +
+                `Please confirm availability.`);
+
+            const whatsappUrl = `https://wa.me/2349088451901?text=${whatsappText}`;
+
+            document.getElementById('resSummaryText').textContent = summaryText;
+            document.getElementById('resWhatsAppLink').href = whatsappUrl;
+            document.getElementById('resConfirmationModal').classList.remove('hidden');
+
+            // Scroll modal into view
+            document.getElementById('resConfirmationModal').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Lightbox Gallery Functions
+        function openLightbox(imgUrl, caption) {
+            document.getElementById('lightboxImg').src = imgUrl;
+            document.getElementById('lightboxCaption').textContent = caption;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
